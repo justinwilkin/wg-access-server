@@ -38,6 +38,7 @@ const messages = { // eslint-disable-line no-unused-vars
     titleRememberMe: 'Stay logged after closing the browser',
     sort: 'Sort',
     ExpireDate: 'Expire Date',
+    AdditionalAllowedIPs: 'Additional Allowed IPs (comma delimited)',
     Permanent: 'Permanent',
     OneTimeLink: 'Generate short one time link',
   },
