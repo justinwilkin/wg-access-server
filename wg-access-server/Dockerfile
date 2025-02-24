@@ -1,6 +1,7 @@
 ### Build stage for the website frontend
 FROM node:10 AS website
-RUN apt-get update
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list && \
+    apt-get update -o Acquire::Check-Valid-Until=false
 RUN apt-get install -y protobuf-compiler libprotobuf-dev
 WORKDIR /code
 COPY ./website/package.json ./
@@ -16,7 +17,11 @@ FROM golang:1.13.8-alpine AS server
 RUN apk add gcc musl-dev
 RUN apk add protobuf
 RUN apk add protobuf-dev
-WORKDIR /code
+WORKDIR /code/wg-embed
+COPY ./wg-embed/go.mod ./
+COPY ./wg-embed/go.sum ./
+COPY ./wg-embed/pkg/ ./pkg/
+WORKDIR /code/wg-access-server
 ENV GOOS=linux
 ENV GARCH=amd64
 ENV CGO_ENABLED=1
@@ -35,7 +40,7 @@ COPY ./internal/ ./internal/
 RUN go build -o wg-access-server
 
 ### Server
-FROM alpine:3.10
+FROM alpine:latest
 RUN apk add iptables
 RUN apk add wireguard-tools
 RUN apk add curl

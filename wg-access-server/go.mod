@@ -46,4 +46,4 @@ require (
 	gotest.tools v2.2.0+incompatible // indirect
 )
 
-replace github.com/place1/wg-embed => ../wg-embed
+replace github.com/place1/wg-embed => ./wg-embed
