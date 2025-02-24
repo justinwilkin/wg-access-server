@@ -17,10 +17,6 @@ FROM golang:1.13.8-alpine AS server
 RUN apk add gcc musl-dev
 RUN apk add protobuf
 RUN apk add protobuf-dev
-WORKDIR /code/wg-embed
-COPY ./wg-embed/go.mod ./
-COPY ./wg-embed/go.sum ./
-COPY ./wg-embed/pkg/ ./pkg/
 WORKDIR /code/wg-access-server
 ENV GOOS=linux
 ENV GARCH=amd64
@@ -37,6 +33,9 @@ COPY ./main.go ./main.go
 COPY ./cmd/ ./cmd/
 COPY ./pkg/ ./pkg/
 COPY ./internal/ ./internal/
+COPY ./wg-embed/go.mod ./
+COPY ./wg-embed/go.sum ./
+COPY ./wg-embed/pkg/ ./pkg/
 RUN go build -o wg-access-server
 
 ### Server
