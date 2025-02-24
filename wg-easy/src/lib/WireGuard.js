@@ -113,7 +113,7 @@ PostDown = ${WG_POST_DOWN}
 
     for (const [clientId, client] of Object.entries(config.clients)) {
       if (!client.enabled) continue;
-      let additionalAllowedIPs = client.additionalAllowedIPs;
+      let additionalAllowedIPs = client.additionalAllowedIPs || '';
 
       result += `
 
