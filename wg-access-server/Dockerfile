@@ -25,6 +25,9 @@ ENV GO111MODULE=on
 RUN go get github.com/golang/protobuf/protoc-gen-go@v1.3.5
 COPY ./go.mod ./
 COPY ./go.sum ./
+COPY ./wg-embed/go.mod ./
+COPY ./wg-embed/go.sum ./
+COPY ./wg-embed/pkg/ ./pkg/
 RUN go mod download
 COPY ./proto/ ./proto/
 COPY ./codegen.sh ./
@@ -33,9 +36,6 @@ COPY ./main.go ./main.go
 COPY ./cmd/ ./cmd/
 COPY ./pkg/ ./pkg/
 COPY ./internal/ ./internal/
-COPY ./wg-embed/go.mod ./
-COPY ./wg-embed/go.sum ./
-COPY ./wg-embed/pkg/ ./pkg/
 RUN go build -o wg-access-server
 
 ### Server
