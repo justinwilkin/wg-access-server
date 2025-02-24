@@ -45,4 +45,4 @@ ENV WG_STORAGE="sqlite3:///data/db.sqlite3"
 COPY --from=server /code/wg-access-server /usr/local/bin/wg-access-server
 COPY --from=website /code/build /website/build
 RUN chmod +x /usr/local/bin/wg-access-server
-CMD ["sh /usr/local/bin/wg-access-server", "serve"]
+CMD ["/usr/local/bin/wg-access-server/wg-access-server", "serve"]
