@@ -40,8 +40,7 @@ require (
 	google.golang.org/grpc v1.30.0
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/Knetic/govaluate.v2 v2.3.0
-	require github.com/alecthomas/kingpin/v2 v2.4.0
-	replace gopkg.in/alecthomas/kingpin.v2 => github.com/alecthomas/kingpin/v2 v2.4.0
+	github.com/alecthomas/kingpin/v2 v2.4.0
 	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 	gotest.tools v2.2.0+incompatible // indirect
