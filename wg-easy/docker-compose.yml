@@ -6,12 +6,11 @@ services:
     environment:
       - LANG=en
       - WG_HOST=13.236.203.94
-      - PASSWORD_HASH=$$2a$12$$Zy4/XrIjCwioNHKMubrc9uNW5WONKnkU18vKm8koc/SUVoczuYzQS
       - PORT=51821
       - WG_PORT=51820
       - WG_DEFAULT_DNS=10.69.0.1
       - WG_PERSISTENT_KEEPALIVE=25
-      - WG_DEFAULT_ADDRESS=10.69.0.x
+      - WG_DEFAULT_ADDRESS=10.69.200.x
     # image: ghcr.io/wg-easy/wg-easy
     build:
       dockerfile: ./Dockerfile
