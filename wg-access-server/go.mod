@@ -25,7 +25,6 @@ require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/place1/pg-events v0.2.0
-	github.com/place1/wg-embed v0.4.1
 	github.com/pquerna/cachecontrol v0.0.0-20200921180117-858c6e7e6b7e // indirect
 	github.com/rs/cors v1.7.0 // indirect
 	github.com/sirupsen/logrus v1.7.0
@@ -34,6 +33,7 @@ require (
 	github.com/vishvananda/netlink v1.1.0
 	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+	golang.zx2c4.com/wireguard v0.0.20200121
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20200609130330-bd2cb7843e1b
 	google.golang.org/appengine v1.6.6 // indirect
 	google.golang.org/genproto v0.0.0-20200715011427-11fb19a81f2c // indirect
@@ -41,9 +41,8 @@ require (
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/Knetic/govaluate.v2 v2.3.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
+	gopkg.in/ini.v1 v1.67.0
 	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 	gotest.tools v2.2.0+incompatible // indirect
 )
-
-replace github.com/place1/wg-embed => ./wg-embed

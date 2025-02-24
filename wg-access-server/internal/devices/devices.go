@@ -6,10 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/place1/wg-embed/pkg/wgembed"
-
 	"github.com/pkg/errors"
 	"github.com/place1/wg-access-server/internal/storage"
+	"github.com/place1/wg-access-server/internal/wgembed"
 	"github.com/place1/wg-access-server/pkg/authnz/authsession"
 	"github.com/sirupsen/logrus"
 )

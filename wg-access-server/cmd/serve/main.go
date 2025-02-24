@@ -10,6 +10,7 @@ import (
 	"github.com/docker/libnetwork/types"
 	"github.com/place1/wg-access-server/internal/services"
 	"github.com/place1/wg-access-server/internal/storage"
+	"github.com/place1/wg-access-server/internal/wgembed"
 	"github.com/place1/wg-access-server/pkg/authnz"
 	"github.com/place1/wg-access-server/pkg/authnz/authconfig"
 	"github.com/place1/wg-access-server/pkg/authnz/authsession"
@@ -20,7 +21,6 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/gorilla/mux"
-	"github.com/place1/wg-embed/pkg/wgembed"
 
 	"github.com/pkg/errors"
 	"github.com/place1/wg-access-server/internal/config"
