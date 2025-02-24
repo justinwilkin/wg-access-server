@@ -246,9 +246,8 @@ module.exports = class Server {
       }))
       .post('/api/wireguard/client', defineEventHandler(async (event) => {
         const { name } = await readBody(event);
-        const { additionalAllowedIPs } = await readBody(event);
         const { expiredDate } = await readBody(event);
-        await WireGuard.createClient({ name, additionalAllowedIPs, expiredDate });
+        await WireGuard.createClient({ name, expiredDate });
         return { success: true };
       }))
       .delete('/api/wireguard/client/:clientId', defineEventHandler(async (event) => {

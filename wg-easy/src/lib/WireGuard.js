@@ -237,7 +237,7 @@ Endpoint = ${WG_HOST}:${WG_CONFIG_PORT}`;
     });
   }
 
-  async createClient({ name, additionalAllowedIPs, expiredDate }) {
+  async createClient({ name, expiredDate }) {
     if (!name) {
       throw new Error('Missing: Name');
     }
@@ -275,7 +275,7 @@ Endpoint = ${WG_HOST}:${WG_CONFIG_PORT}`;
       privateKey,
       publicKey,
       preSharedKey,
-      additionalAllowedIPs: [],
+      additionalAllowedIPs: null,
 
       createdAt: new Date(),
       updatedAt: new Date(),

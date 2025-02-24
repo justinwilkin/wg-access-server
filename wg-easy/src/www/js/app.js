@@ -300,11 +300,10 @@ new Vue({
     },
     createClient() {
       const name = this.clientCreateName;
-      const additionalAllowedIPs = this.clientAdditionalAllowedIPs;
       const expiredDate = this.clientExpiredDate;
       if (!name) return;
 
-      this.api.createClient({ name, additionalAllowedIPs, expiredDate })
+      this.api.createClient({ name, expiredDate })
         .catch((err) => alert(err.message || err.toString()))
         .finally(() => this.refresh().catch(console.error));
     },
