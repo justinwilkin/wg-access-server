@@ -113,7 +113,7 @@ PostDown = ${WG_POST_DOWN}
 
     for (const [clientId, client] of Object.entries(config.clients)) {
       if (!client.enabled) continue;
-      let additionalAllowedIPs = client.additionalAllowedIPs || '';
+      let additionalAllowedIPs = client.additionalAllowedIPs ? ', ' + client.additionalAllowedIPs : '';
 
       result += `
 
@@ -121,7 +121,7 @@ PostDown = ${WG_POST_DOWN}
 [Peer]
 PublicKey = ${client.publicKey}
 ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
-}AllowedIPs = ${client.address}/32, ${additionalAllowedIPs}
+}AllowedIPs = ${client.address}/32 ${additionalAllowedIPs}
 PersistentKeepalive = ${WG_PERSISTENT_KEEPALIVE}`;
     }
 
