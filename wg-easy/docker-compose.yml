@@ -15,6 +15,7 @@ services:
     # image: ghcr.io/wg-easy/wg-easy
     build:
       dockerfile: ./Dockerfile
+      context: .
     container_name: wg-easy
     volumes:
       - ./wg:/etc/wireguard
