@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package proto;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service Devices {
+  rpc AddDevice(AddDeviceReq) returns (Device) {}
+  rpc ListDevices(ListDevicesReq) returns (ListDevicesRes) {}
+  rpc DeleteDevice(DeleteDeviceReq) returns (google.protobuf.Empty) {}
+
+  // admin only
+  rpc ListAllDevices(ListAllDevicesReq) returns (ListAllDevicesRes) {}
+}
+
+message Device {
+  string name = 1;
+  string owner = 2;
+  string public_key = 3;
+  string address = 4;
+  google.protobuf.Timestamp created_at = 5;
+  bool connected = 6;
+  google.protobuf.Timestamp last_handshake_time = 7;
+  int64 receive_bytes = 8;
+  int64 transmit_bytes = 9;
+  string endpoint = 10;
+  string owner_name = 11;
+  string owner_email = 12;
+  string owner_provider = 13;
+}
+
+message AddDeviceReq {
+  string name = 1;
+  string public_key = 2;
+}
+
+message ListDevicesReq {
+
+}
+
+message ListDevicesRes {
+  repeated Device items = 1;
+}
+
+message DeleteDeviceReq {
+  string name = 1;
+
+  // admin's may delete a device owned
+  // by someone other than the current user
+  // if empty, defaults to the current user
+  google.protobuf.StringValue owner = 2;
+}
+
+message ListAllDevicesReq {
+
+}
+
+message ListAllDevicesRes {
+  repeated Device items = 1;
+}
